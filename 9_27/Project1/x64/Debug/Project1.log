@@ -1,0 +1,4 @@
+﻿  test.c
+C:\Users\21275\Desktop\C代码\9_27\Project1\test.c(56,26): warning C4311: “类型强制转换”: 从“int [4]”到“int”的指针截断
+C:\Users\21275\Desktop\C代码\9_27\Project1\test.c(56,30): warning C4312: “类型强制转换”: 从“int”转换到更大的“int *”
+  Project1.vcxproj -> C:\Users\21275\Desktop\C代码\9_27\Project1\x64\Debug\Project1.exe
