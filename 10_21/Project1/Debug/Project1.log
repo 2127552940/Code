@@ -1,0 +1,5 @@
+﻿  test.c
+C:\Users\21275\Desktop\C代码\10_21\Project1\test.c(18,8): warning C4305: “初始化”: 从“double”到“float”截断
+C:\Users\21275\Desktop\C代码\10_21\Project1\test.c(19,11): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+C:\Users\21275\Desktop\C代码\10_21\Project1\test.c(20,14): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  Project1.vcxproj -> C:\Users\21275\Desktop\C代码\10_21\Project1\Debug\Project1.exe
