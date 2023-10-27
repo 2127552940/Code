@@ -2,17 +2,186 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-int* test()
-{
-	int a=4;
-	return &a;
-}
-int main()
-{
-	//模拟实现memmove功能：复制一段字符到另一段字符空间中
-	//void *memmove( void *dest, const void *src, size_t count );
-	return 0;
-}
+#include <math.h>
+//char* my_strncpy(char* dest, const char* src, size_t n)
+//{
+//	//并不会自动添加\0
+//	assert(dest && src);
+//	char* dt = dest;
+//	for (size_t i = 0; i < n; i++)
+//	{
+//		*dt++ = *src++;
+//	}
+//	return dest;
+//}
+//int main()
+//{
+//	//模拟实现strncpy 功能：C 库函数 char *strncpy(char *dest, const char *src, size_t n) 把 src 所指向的字符串复制到 dest，最多复制 n 个字符。当 src 的长度小于 n 时，dest 的剩余部分将用空字节填充。
+//	//char *strncpy(char *dest, const char *src, size_t n)
+//	char str1[20] = "abcdef";
+//	char str3[20];
+//	char str2[] = "efgh";
+//	//printf("%s\n", strncpy(str1, str2, 3));
+//	//printf("%s\n", strncpy(str3, str2, 3));
+//	printf("%s\n", my_strncpy(str1, str2, 5));
+//	printf("%s\n", my_strncpy(str3, str2, 5));
+//
+//	return 0;
+//}
+//char* my_strncat(char* dest, const char* src, size_t n)
+//{
+//	assert(dest && src);
+//	int len = strlen(dest);
+//	char* dt = dest + len;
+//	for (size_t i = 0; i < n; i++)
+//	{
+//		*dt++ = *src++;
+//	}
+//	*(dt + 1) = '\0';//最后调试发现是需要另外加\0的
+//	return dest;
+//}
+//int main()
+//{
+//	//实现strncat函数 功能：C 库函数 char *strncat(char *dest, const char *src, size_t n) 把 src 所指向的字符串追加到 dest 所指向的字符串的结尾，直到 n 字符长度为止。
+//	//char *strncat(char *dest, const char *src, size_t n)
+//	char str1[12] = "abcdefg";
+//	char str2[] = "mlnkf";
+//	//printf("%s\n", strncat(str1, str2, 4));
+//	printf("%s\n", my_strncat(str1, str2, 4));
+//
+//	return 0;
+//}
+//int my_atoi(const char* str)
+//{
+//	//方法：从字符串的首个字符开始判断是否为数字字符，如果是就把数字字符转换成数字并存储起来，自到遇到非数字字符停止
+//	assert(str);
+//	int ret = 0;
+//	int sum = 0;
+//	int i = 0;
+//	while (*str>='0'&&*str<='9')
+//	{
+//		ret = ((*str) - '0');
+//		sum *= 10;
+//		sum += ret;
+//		str++;
+//		i++;
+//	}
+//	return sum;
+//}
+//int main()
+//{
+//	//实现atoi函数,功能：C 库函数 int atoi(const char *str) 把参数 str 所指向的字符串转换为一个整数（类型为 int 型）
+//	//int atoi(const char *str)
+//	char arr1[] = "12045b";
+//	int a = 0;
+//	int b=0;
+//	a = atoi(arr1);
+//	b = my_atoi(arr1);
+//	printf("%d\n", a);
+//	printf("%d\n", b);
+//	return 0;
+//}
+//char* GetMemory(void)
+//{
+//	char p[] = "hello world";
+//	return p;
+//}
+//void Test(void)
+//{
+//	char* str = NULL;
+//	str = GetMemory();
+//	printf(str);
+//}
+//int main()
+//{
+//	Test();
+//	return 0;
+//}
+//void* my_memcpy(void* dest, const void* src, size_t num)
+//{
+//	assert(dest && src);
+//	char* dt = (char*)dest;
+//	char* sc = (char*)src;
+//	for (size_t i = 0; i < num; i++)
+//	{
+//		*dt = *sc;
+//		dt++;
+//		sc++;
+//	}
+//	return dest;
+//}
+//int main()
+//{
+//	//实现memcpy功能：复制一段字符串到另外一个空间中,并不会自动添加\0
+//	//void *memcpy(void *str1, const void *str2, size_t n)
+//	char arr1[] = "abcdefgh";
+//	char arr2[20];
+//	memcpy(arr2, arr1, 4);
+//	printf("%.*s\n",4, arr2);
+//	my_memcpy(arr2, arr1, 5);
+//	printf("%.*s\n", 5, arr2);
+//	int arr[] = { 1,2,3,4,5,6 };
+//	int arr3[20] = {0};
+//	memcpy(arr3, arr, 20);
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d ", arr3[i]);
+//	}
+//	return 0;
+//}
+//int* test()
+//{
+//	int a=4;
+//	return &a;
+//}
+//void* my_memmove(void* dest,const void* src, size_t num)
+//{
+//	char* dt = (char*)dest;
+//	char* sc = (char*)src;
+//	if (dest < src)
+//	{
+//		//从前向后移动
+//		for (size_t i = 0; i < num; i++)
+//		{
+//			*dt = *sc;
+//			dt++;
+//			sc++;
+//		}
+//	}
+//	else
+//	{
+//		//从后向前移动
+//		for (int i = num-1; i >= 0; i--)
+//		{
+//			*(dt + i) = *(sc + i);
+//		}
+//	}
+//	return dest;
+//}
+//int main()
+//{
+//	//模拟实现memmove功能：复制一段字符到另一段字符空间中
+//	//void *memmove( void *dest, const void *src, size_t count );
+//	int arr1[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int arr2[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	char arr[] = "abcdef";
+//	char arr3[20];
+//	my_memmove(arr3, arr, 3);
+//	printf("%s\n", arr3);
+//	//memmove(arr1, arr1+2, 20);
+//	my_memmove(arr1, arr1 + 2, 20);
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", arr1[i]);
+//	}
+//	printf("\n");
+//	my_memmove(arr2+2, arr2, 20);
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", arr2[i]);
+//	}
+//	return 0;
+//}
 //int main()
 //{
 //    union
