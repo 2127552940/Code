@@ -1,0 +1,7 @@
+﻿  test.c
+C:\Users\21275\Desktop\C代码\10_31\Project1\test.c(23,14): warning C4090: “=”: 不同的“const”限定符
+C:\Users\21275\Desktop\C代码\10_31\Project1\test.c(7,8): warning C4090: “初始化”: 不同的“const”限定符
+C:\Users\21275\Desktop\C代码\10_31\Project1\test.c(8,8): warning C4090: “初始化”: 不同的“const”限定符
+C:\Users\21275\Desktop\C代码\10_31\Project1\test.c(9,8): warning C4090: “初始化”: 不同的“const”限定符
+C:\Users\21275\Desktop\C代码\10_31\Project1\test.c(28): warning C4715: “my_strstr”: 不是所有的控件路径都返回值
+  Project1.vcxproj -> C:\Users\21275\Desktop\C代码\10_31\Project1\x64\Debug\Project1.exe
